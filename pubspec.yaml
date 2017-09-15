@@ -1,0 +1,22 @@
+name: flutter_mates
+description: A new Flutter project.
+
+dependencies:
+  http: '>=0.11.3+12'
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+  assets:
+    - images/profile_header_background.png
+    - images/portfolio_1.jpeg
+    - images/portfolio_2.jpeg
+    - images/portfolio_3.jpeg
+    - images/portfolio_4.jpeg
+    - images/portfolio_5.jpeg
+    - images/portfolio_6.jpeg
