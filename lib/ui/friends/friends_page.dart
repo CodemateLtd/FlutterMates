@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:http/http.dart' as http;
 import 'package:flutter_mates/ui/frienddetails/friend_details_page.dart';
 import 'package:flutter_mates/ui/friends/friend.dart';
 
@@ -18,15 +18,15 @@ class _FriendsPageState extends State<FriendsPage> {
   }
 
   _loadFriends() async {
-    String response =
-        await createHttpClient().read('https://randomuser.me/api/?results=25');
+    http.Response response =
+        await http.get('https://randomuser.me/api/?results=25');
 
     setState(() {
-      _friends = Friend.allFromResponse(response);
+      _friends = Friend.allFromResponse(response.body);
     });
   }
 
-  _buildFriendItem(BuildContext context, int index) {
+  Widget _buildFriendItem(BuildContext context, int index) {
     Friend friend = _friends[index];
 
     return new ListTile(
