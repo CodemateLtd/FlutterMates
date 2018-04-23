@@ -1,14 +1,16 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter_mates/ui/frienddetails/friend_details_page.dart';
 import 'package:flutter_mates/ui/friends/friend.dart';
 
-class FriendsPage extends StatefulWidget {
+class FriendsListPage extends StatefulWidget {
   @override
-  _FriendsPageState createState() => new _FriendsPageState();
+  _FriendsListPageState createState() => new _FriendsListPageState();
 }
 
-class _FriendsPageState extends State<FriendsPage> {
+class _FriendsListPageState extends State<FriendsListPage> {
   List<Friend> _friends = [];
 
   @override
@@ -17,7 +19,7 @@ class _FriendsPageState extends State<FriendsPage> {
     _loadFriends();
   }
 
-  _loadFriends() async {
+  Future<void> _loadFriends() async {
     http.Response response =
         await http.get('https://randomuser.me/api/?results=25');
 
@@ -26,8 +28,8 @@ class _FriendsPageState extends State<FriendsPage> {
     });
   }
 
-  Widget _buildFriendItem(BuildContext context, int index) {
-    Friend friend = _friends[index];
+  Widget _buildFriendListTile(BuildContext context, int index) {
+    var friend = _friends[index];
 
     return new ListTile(
       onTap: () => _navigateToFriendDetails(friend, index),
@@ -42,7 +44,7 @@ class _FriendsPageState extends State<FriendsPage> {
     );
   }
 
-  _navigateToFriendDetails(Friend friend, Object avatarTag) {
+  void _navigateToFriendDetails(Friend friend, Object avatarTag) {
     Navigator.of(context).push(
       new MaterialPageRoute(
         builder: (c) {
@@ -54,7 +56,7 @@ class _FriendsPageState extends State<FriendsPage> {
 
   @override
   Widget build(BuildContext context) {
-    var content;
+    Widget content;
 
     if (_friends.isEmpty) {
       content = new Center(
@@ -63,7 +65,7 @@ class _FriendsPageState extends State<FriendsPage> {
     } else {
       content = new ListView.builder(
         itemCount: _friends.length,
-        itemBuilder: _buildFriendItem,
+        itemBuilder: _buildFriendListTile,
       );
     }
 

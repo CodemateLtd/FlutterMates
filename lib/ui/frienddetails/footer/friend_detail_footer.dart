@@ -20,7 +20,7 @@ class _FriendShowcaseState extends State<FriendShowcase>
   TabController _controller;
 
   @override
-  initState() {
+  void initState() {
     super.initState();
     _tabs = [
       new Tab(text: 'Portfolio'),
@@ -43,7 +43,7 @@ class _FriendShowcaseState extends State<FriendShowcase>
     return new Padding(
       padding: const EdgeInsets.all(16.0),
       child: new Column(
-        children: [
+        children: <Widget>[
           new TabBar(
             controller: _controller,
             tabs: _tabs,

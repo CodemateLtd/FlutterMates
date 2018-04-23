@@ -7,8 +7,8 @@ class SkillsShowcase extends StatelessWidget {
 
     return new Center(
       child: new Text(
-          'Skills: TODO',
-          style: textTheme.title.copyWith(color: Colors.white),
+        'Skills: TODO',
+        style: textTheme.title.copyWith(color: Colors.white),
       ),
     );
   }
