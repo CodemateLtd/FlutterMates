@@ -21,11 +21,11 @@ class FriendDetailsPage extends StatefulWidget {
 class _FriendDetailsPageState extends State<FriendDetailsPage> {
   @override
   Widget build(BuildContext context) {
-    var linearGradient = new BoxDecoration(
-      gradient: new LinearGradient(
+    var linearGradient = const BoxDecoration(
+      gradient: const LinearGradient(
         begin: FractionalOffset.centerRight,
         end: FractionalOffset.bottomLeft,
-        colors: [
+        colors: <Color>[
           const Color(0xFF413070),
           const Color(0xFF2B264A),
         ],
@@ -38,7 +38,7 @@ class _FriendDetailsPageState extends State<FriendDetailsPage> {
           decoration: linearGradient,
           child: new Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
+            children: <Widget>[
               new FriendDetailHeader(
                 widget.friend,
                 avatarTag: widget.avatarTag,

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_mates/ui/friends/friends_page.dart';
+import 'package:flutter_mates/ui/friends/friends_list_page.dart';
 
 void main() {
   runApp(new MyApp());
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         accentColor: const Color(0xFFF850DD),
       ),
-      home: new FriendsPage(),
+      home: new FriendsListPage(),
     );
   }
 }

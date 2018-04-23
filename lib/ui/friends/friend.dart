@@ -14,11 +14,14 @@ class Friend {
   final String email;
   final String location;
 
-  static List<Friend> allFromResponse(String json) {
-    return JSON
-        .decode(json)['results']
+  static List<Friend> allFromResponse(String response) {
+    var decodedJson = json.decode(response).cast<String, dynamic>();
+
+    return decodedJson['results']
+        .cast<Map<String, dynamic>>()
         .map((obj) => Friend.fromMap(obj))
-        .toList();
+        .toList()
+        .cast<Friend>();
   }
 
   static Friend fromMap(Map map) {
