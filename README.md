@@ -6,6 +6,6 @@ All code resides in the [/lib folder](https://github.com/CodemateLtd/FlutterMate
 
 A sample app for our internal company talk about Flutter(Dart).
 
-The end result looks a little something like this:
+The final result looks a little something like this:
 
 ![The screenshots of the sample app.](https://github.com/CodemateLtd/FlutterMates/raw/master/screenshots.png)
